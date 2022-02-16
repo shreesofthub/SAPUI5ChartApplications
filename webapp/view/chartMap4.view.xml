@@ -1,0 +1,14 @@
+<mvc:View controllerName="project1.controller.chartMap4" 
+          xmlns:mvc="sap.ui.core.mvc" 
+          xmlns="sap.m"
+          xmlns:vbm="sap.ui.vbm">
+    <Page id="idPage2" title="Chart Control in World Map" showNavButton="true" navButtonPress="onBack">
+        <content>
+            <vbm:AnalyticMap id="idChartMap4Map" width="100%" height="100%" regions="{colorModel>/mapData}">
+                <vbm:regions>
+                    <vbm:Region id="idRegion1" code="{colorModel>country}" color="{colorModel>sales}"></vbm:Region>
+                </vbm:regions>
+            </vbm:AnalyticMap>
+        </content>
+    </Page>
+</mvc:View>

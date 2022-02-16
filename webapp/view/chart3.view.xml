@@ -1,0 +1,91 @@
+<mvc:View controllerName="project1.controller.chart3" 
+          xmlns:mvc="sap.ui.core.mvc" 
+          xmlns="sap.m" 
+          xmlns:viz="sap.viz.ui5.controls"
+          xmlns:data="sap.viz.ui5.data"
+          xmlns:feeds="sap.viz.ui5.controls.common.feeds"
+          xmlns:layout="sap.ui.layout">
+    <Page id="idChart3" title="Display four Different types of charts in single view" showNavButton="true" navButtonPress="onBack">
+        <content>
+            <layout:BlockLayout id="idChart3BLay" background="Accent">
+                <layout:BlockLayoutRow id="idChart3BLayR1">
+                    <layout:BlockLayoutCell id="idChart3BLayC1" title="Column Chart" width="1">
+                        <viz:VizFrame id="idVizFrame3_1" vizType="column" uiConfig="{applicationSet:'fiori'}" vizProperties="{title:{text:'CustomerSales in FY 2021-2022'}}">
+                            <viz:dataset>
+                                <data:FlattenedDataset id="idChart3FlateData1" data="{/customerSales}">
+                                    <data:dimensions>
+                                        <data:DimensionDefinition id="idChart3DimDef1" name="Customer" value="{name}"></data:DimensionDefinition>
+                                    </data:dimensions>
+                                    <data:measures>
+                                        <data:MeasureDefinition id="idChart3MeaDef1" name="Sales in Crores" value="{sales}"></data:MeasureDefinition>
+                                    </data:measures>
+                                </data:FlattenedDataset>
+                            </viz:dataset> 
+                            <viz:feeds>
+                                <feeds:FeedItem id="idChart3FeedM1" uid="valueAxis" type="Measure" values="Sales in Crores"> </feeds:FeedItem>
+                                <feeds:FeedItem id="idChart3FeedD1" uid="categoryAxis" type="Dimension" values="Customer"> </feeds:FeedItem>
+                            </viz:feeds>
+                        </viz:VizFrame>
+                    </layout:BlockLayoutCell>
+                    <layout:BlockLayoutCell id="idChart3BLayC2" title="Bar Chart" width="1">
+                        <viz:VizFrame id="idVizFrame3_2" vizType="bar" uiConfig="{applicationSet:'fiori'}" vizProperties="{title:{text:'TATA Sales country wise in FY 2021-2022'},
+                                                                                                                           plotArea: { drawingEffect: 'glossy'}, }">
+                            <viz:dataset>
+                                <data:FlattenedDataset id="idChart3FlateData2" data="{/salesByCountry}">
+                                    <data:dimensions>
+                                        <data:DimensionDefinition id="idChart3DimDef2" name="Country" value="{country}"></data:DimensionDefinition>
+                                    </data:dimensions>
+                                    <data:measures>
+                                        <data:MeasureDefinition id="idChart3MeaDef2" name="Sales in Crores" value="{sales}"></data:MeasureDefinition>
+                                    </data:measures>
+                                </data:FlattenedDataset>
+                            </viz:dataset> 
+                            <viz:feeds>
+                                <feeds:FeedItem id="idChart3FeedM2" uid="valueAxis" type="Measure" values="Sales in Crores"> </feeds:FeedItem>
+                                <feeds:FeedItem id="idChart3FeedD2" uid="categoryAxis" type="Dimension" values="Country"> </feeds:FeedItem>
+                            </viz:feeds>
+                        </viz:VizFrame>
+                    </layout:BlockLayoutCell>
+                </layout:BlockLayoutRow>
+                <layout:BlockLayoutRow id="idChart3BLayR2">
+                    <layout:BlockLayoutCell id="idChart3BLayC3" title="Pie Chart" width="1">
+                        <viz:VizFrame id="idVizFrame3_3" vizType="donut" uiConfig="{applicationSet:'fiori'}" vizProperties="{title:{text:'TATA Sales country wise in FY 2021-2022'}}">
+                            <viz:dataset>
+                                <data:FlattenedDataset id="idChart3FlateData3" data="{/salesByCountry}">
+                                    <data:dimensions>
+                                        <data:DimensionDefinition id="idChart3DimDef3" name="country" value="{country}"></data:DimensionDefinition>
+                                    </data:dimensions>
+                                    <data:measures>
+                                        <data:MeasureDefinition id="idChart3MeaDef3" name="Sales in Crores" value="{sales}"></data:MeasureDefinition>
+                                    </data:measures>
+                                </data:FlattenedDataset>
+                            </viz:dataset> 
+                            <viz:feeds>
+                                <feeds:FeedItem id="idChart3FeedM3" uid="size" type="Measure" values="Sales in Crores"> </feeds:FeedItem>
+                                <feeds:FeedItem id="idChart3FeedD3" uid="color" type="Dimension" values="country"> </feeds:FeedItem>
+                            </viz:feeds>
+                        </viz:VizFrame>
+                    </layout:BlockLayoutCell>
+                    <layout:BlockLayoutCell id="idChart3BLayC4" title="Donut Chart" width="1">
+                        <viz:VizFrame id="idVizFrame3_4" vizType="pie" uiConfig="{applicationSet:'fiori'}" vizProperties="{title:{text:'CustomerSales in FY 2021-2022'}}">
+                            <viz:dataset>
+                                <data:FlattenedDataset id="idChart3FlateData4" data="{/customerSales}">
+                                    <data:dimensions>
+                                        <data:DimensionDefinition id="idChart3DimDef4" name="Customer" value="{name}"></data:DimensionDefinition>
+                                    </data:dimensions>
+                                    <data:measures>
+                                        <data:MeasureDefinition id="idChart3MeaDef4" name="Sales in Crores" value="{sales}"></data:MeasureDefinition>
+                                    </data:measures>
+                                </data:FlattenedDataset>
+                            </viz:dataset> 
+                            <viz:feeds>
+                                <feeds:FeedItem id="idChart3FeedM4" uid="size" type="Measure" values="Sales in Crores"> </feeds:FeedItem>
+                                <feeds:FeedItem id="idChart3FeedD4" uid="color" type="Dimension" values="Customer"> </feeds:FeedItem>
+                            </viz:feeds>
+                        </viz:VizFrame>
+                    </layout:BlockLayoutCell>
+                </layout:BlockLayoutRow>
+            </layout:BlockLayout>
+        </content>
+    </Page>
+</mvc:View>

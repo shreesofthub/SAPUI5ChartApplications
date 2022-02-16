@@ -1,0 +1,26 @@
+<mvc:View
+    controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                     <Panel id="idPanle1" backgroundDesign="Solid" expandable="true" headerText="Chart Examples">
+                        <RadioButtonGroup id="idRbg1" select="onSelect">
+                            <buttons>
+                                <RadioButton id="idRb1_1" text="column chart Display-(sap.viz.ui5.controls.vizFrame in controller) "></RadioButton>
+                                <RadioButton id="idRb1_2" text="Stacked Chart Display- Display chart as table also(sap.viz.ui5.controls.vizFrame in View)"></RadioButton>
+                                <RadioButton id="idRb1_3" text="Display four Different types of Charts in single View-(sap.ui.layout.BlockLayout,chartContainer in View)"></RadioButton>
+                                <RadioButton id="idRb1_4" text="Display Chart Control in WorldMap-(sap.ui.vbm.AnalyticMap in View)"></RadioButton>
+                            </buttons>
+                        </RadioButtonGroup>
+                    </Panel>
+                    <Button id="idBtn1" text="Next" press="onNext"></Button>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

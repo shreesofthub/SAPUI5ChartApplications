@@ -1,0 +1,103 @@
+<mvc:View controllerName="project1.controller.chart2" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" 
+          xmlns:viz="sap.viz.ui5.controls" 
+          xmlns:data="sap.viz.ui5.data"
+          xmlns:feeds="sap.viz.ui5.controls.common.feeds"
+          xmlns:chart="sap.suite.ui.commons">
+    <Page id="idChart2P" title="Display Books Saled in year" showNavButton="true" navButtonPress="onBack">
+        <content>
+        <chart:ChartContainer  autoAdjustHeight="true" showFullScreen="true" id="chartContainer"  title="Software Books Report" 
+                               personalizationPress="attachPersonalizationPress" contentChange="attachContentChange"> 
+            <chart:ChartContainerContent id="idChartCont1" icon="sap-icon://horizontal-stacked-chart" title="Stacked_bar Chart">
+            <chart:content>
+                <viz:VizFrame height="50px"  id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                            vizProperties="{plotArea: { drawingEffect: 'glossy'}, 
+                                            title:{ text:'Data analysis through Reports'},
+                                            dataLabel:{visible:true,showTotal:true}}" vizType="stacked_column">
+                    <viz:dataset>
+                        <data:FlattenedDataset id="idDataSet" data="{/Reports}">
+                            <data:dimensions>
+                                <data:DimensionDefinition id="idDimension1" name="Year" value="{Year}"/>
+                            </data:dimensions>
+                            <data:measures>
+                                <data:MeasureDefinition id="idMeasure1" name="SAP" value="{SAP}"/>
+                                <data:MeasureDefinition id="idMeasure2" name="SAPUI5" value="{SAPUI5}"/>
+                                <data:MeasureDefinition id="idMeasure3" name="SAP ABAP" value="{SAP ABAP}"/>
+                                <data:MeasureDefinition id="idMeasure4" name="JAVA" value="{JAVA}"/>
+                            </data:measures>
+                        </data:FlattenedDataset>
+                    </viz:dataset>
+                    <viz:feeds>
+                        <feeds:FeedItem id="idFeedItem1" type="Measure" uid="valueAxis" values="JAVA,SAP ABAP,SAPUI5,SAP"/>
+                        <feeds:FeedItem id="idFeedItem2" type="Dimension" uid="categoryAxis" values="Year"/>
+                    </viz:feeds>
+                </viz:VizFrame>
+            </chart:content>
+            </chart:ChartContainerContent>
+            <chart:ChartContainerContent id="idChartCont2" icon="sap-icon://table-view" title="table">
+                <chart:content>
+                    <Table id="idChartTable1" items="{/Reports}">
+                        <columns>
+                            <Column id="idTableColChart2_1" > 
+                                <Text id="idTextChart2_1" text="Year"></Text>
+                            </Column>
+                            <Column id="idTableColChart2_2"> 
+                                <Text id="idTextChart2_2" text="SAP"></Text>
+                            </Column>
+                            <Column id="idTableColChart2_3"> 
+                                <Text id="idTextChart2_3" text="SAP ABAP"></Text>
+                            </Column>
+                            <Column id="idTableColChart2_4"> 
+                                <Text id="idTextChart2_4" text="SAPUI5"></Text>
+                            </Column>
+                            <Column id="idTableColChart2_5"> 
+                                <Text id="idTextChart2_5" text="JAVA"></Text>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem id="idColumnListItemChart2" press="onPress">
+                                <Text id="idTextChart2_6" text="{Year}"></Text>
+                                <Text id="idTextChart2_7" text="{SAP}"></Text>
+                                <Text id="idTextChart2_8" text="{SAPUI5}"></Text>
+                                <Text id="idTextChart2_9" text="{ABAP}"></Text>
+                                <Text id="idTextChart2_0" text="{JAVA}"></Text>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </chart:content>
+             </chart:ChartContainerContent>
+            <!-- <chart:ChartContainerContent id="idChartCont2">
+                <chart:content>
+                <Table id="idTableChart2"  items="{/Reports}">
+                    <columns>
+                        <Column id="idTableColChart2_1"> 
+                            <Text id="idTextChart2_1" text="Year"></Text>
+                        </Column>
+                        <Column id="idTableColChart2_2"> 
+                            <Text id="idTextChart2_2" text="SAP"></Text>
+                        </Column>
+                        <Column id="idTableColChart2_3"> 
+                            <Text id="idTextChart2_3" text="SAP ABAP"></Text>
+                        </Column>
+                        <Column id="idTableColChart2_4"> 
+                            <Text id="idTextChart2_4" text="SAPUI5"></Text>
+                        </Column>
+                        <Column id="idTableColChart2_5"> 
+                            <Text id="idTextChart2_5" text="JAVA"></Text>
+                        </Column>
+                    </columns>
+                    <items>
+                    <ColumnListItem id="idColumnListItemChart2" press="onPress">
+                        <Text id="idTextChart2_6"text="{Year}"></Text>
+                        <Text id="idTextChart2_7" text="{SAP}"></Text>
+                        <Text id="idTextChart2_8" text="{SAPUI5}"></Text>
+                        <Text id="idTextChart2_9" text="{ABAP}"></Text>
+                        <Text id="idTextChart2_0" text="{JAVA}"></Text>
+                    </ColumnListItem>
+                    </items>
+                </Table>
+                </chart:content>
+            </chart:ChartContainerContent> -->
+        </chart:ChartContainer>
+        </content>
+    </Page>
+</mvc:View>
